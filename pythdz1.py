@@ -32,4 +32,16 @@ def main():
     except KeyboardInterrupt:
         print("\nПрограмма остановлена пользователем.")
 if __name__ == '__main__':
+
     main()
+import requests
+def site(URL):
+    main = requests.get(URL)
+    if 200 <= main.status_code < 400:
+        print(f'site is available! code: {main.status_code}')
+    else:
+        print(f'site isnt available! code: {main.status_code}')
+URL = input('enter URL: ')
+site(URL)
+            
+        )
