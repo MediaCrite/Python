@@ -34,14 +34,13 @@ def main():
 if __name__ == '__main__':
 
     main()
+
 import requests
-def site(URL):
-    main = requests.get(URL)
-    if 200 <= main.status_code < 400:
-        print(f'site is available! code: {main.status_code}')
-    else:
-        print(f'site isnt available! code: {main.status_code}')
-URL = input('enter URL: ')
-site(URL)
-            
-        )
+url = input("Введите URL (например, https://ya.ru): ")
+try:
+    response = requests.get(url)
+    if 200 <= response.status_code < 400:
+        print(f"Сайт доступен! Код ответа: {response.status_code}")
+    elif response.status_code >= 400:
+        print(f"Сайт недоступен! Код: {response.status_code}")
+site(url)
